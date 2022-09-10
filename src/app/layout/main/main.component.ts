@@ -27,8 +27,8 @@ export class MainComponent implements OnInit {
 
       if (limit) {
         this.state.updateLimit(limit)
-
       }
+
     });
   }
 

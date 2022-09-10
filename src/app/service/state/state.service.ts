@@ -11,7 +11,7 @@ export class StateService {
   public beers: Beer[] = []
   public pageNumber: number = 1
   public searchList: string[] = []
-  public tempSearchList: string[] = [...this.searchList]
+  public tempSearchList: string[] = []
 
   public xRateLimitRemaining: number = 3600
 
@@ -50,6 +50,10 @@ export class StateService {
 
   public updateSearchList(payload: string[]) {
     this.searchList = payload
+  }
+
+  public initTempSearchList() {
+    this.tempSearchList = this.searchList
   }
 
   public filterSearchList(payload: string) {

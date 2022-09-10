@@ -17,8 +17,8 @@ export class SearchComponent implements OnInit {
 
     if (searchListOnStorage) {
       const searchList = JSON.parse(searchListOnStorage)
-      console.log(searchList)
       this.state.updateSearchList(searchList)
+      this.state.initTempSearchList()
     }
   }
 
