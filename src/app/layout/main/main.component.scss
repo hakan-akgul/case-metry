@@ -1,0 +1,30 @@
+@import '../../style/colors.scss';
+@import '../../style/mixins.scss';
+
+.main {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+
+  &__card-list {
+    display: flex;
+    flex-flow: wrap;
+    width: 14rem;
+
+    @include sm {
+      width: 28rem;
+    }
+
+    @include md {
+      width: 42rem;
+    }
+
+    @include lg {
+      width: 56rem;
+    }
+
+    @include xl {
+      width: 70rem;
+    }
+  }
+}

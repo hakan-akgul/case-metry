@@ -1,0 +1,59 @@
+@import '../../style/colors.scss';
+
+.card {
+  position: relative;
+  overflow: hidden;
+  margin: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  height: 18rem;
+  background-color: $alabaster;
+  width: 12rem;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.5s;
+
+  &:hover {
+    background-color: $chrome-yellow;
+  }
+
+  &__image {
+    position: relative;
+    z-index: 1;
+    width: auto;
+    height: 9rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &__info {
+    position: relative;
+    z-index: 4;
+    text-align: center;
+  }
+
+  &__name {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: $deep-taupe;
+
+    &--big {
+      font-weight: bolder;
+      position: absolute;
+      top: -2rem;
+      left: -1rem;
+      font-size: 5rem;
+      color: $bone;
+      opacity: 0.5;
+      z-index: 0;
+      transform: rotate(-45deg);
+    }
+  }
+
+  &__tagline {
+    color: $kobe;
+    opacity: 0.5;
+  }
+
+}

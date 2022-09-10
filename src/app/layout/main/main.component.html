@@ -1,0 +1,7 @@
+<div id="main" class="main">
+  <div class="main__card-list">
+    <app-card *ngFor="let beer of state.beers" [beer]="beer"></app-card>
+  </div>
+</div>
+
+<app-pagination></app-pagination>

@@ -1,0 +1,11 @@
+<div id="search" class="search" (click)="handleSearchFocus(true)">
+  <input class="search__input" [ngClass]="isSearchFocused ? 'search__input--half-border' : 'search__input--full-border'"
+    #searchQuery (keyup.enter)="search(searchQuery.value, $event)" type="text" placeholder="Search beer name"
+    [value]="searchValue">
+  <div *ngIf="isSearchFocused" class="search__select" name="search">
+    <p class="search__option" *ngFor="let searchItem of state.searchList" (click)="search(searchItem, $event)">
+      {{searchItem}}
+    </p>
+  </div>
+</div>
+<div *ngIf="isSearchFocused" class="search__outside" (click)="handleSearchFocus(false)"></div>
