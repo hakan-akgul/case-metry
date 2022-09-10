@@ -1,1 +1,8 @@
-<input #paginateBeers (keyup.enter)="paginate(paginateBeers.value, $event)" type="number" placeholder="paginate">
+<div class="paginate">
+  <div class="paginate__wrapper">
+    <button class="paginate__button" (click)="paginate((pageNumber - 1).toString(),$event)"> - </button>
+    <input class="paginate__input" #paginateBeers (keyup.enter)="paginate(paginateBeers.value, $event)" type="text"
+      [value]="pageNumber" placeholder="go to page">
+    <button class="paginate__button" (click)="paginate((pageNumber + 1).toString(),$event)"> + </button>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+.paginate {
+  width: 100%;
+  margin: 2rem 0 4rem 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+  &__wrapper {
+    overflow: hidden;
+    padding: 0 1rem;
+    background-color: white;
+    width: 12rem;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__input {
+    text-align: center;
+    width: 4rem;
+    border: none;
+  }
+
+  &__button {
+    border: none;
+    background-color: white;
+    cursor: pointer;
+  }
+}

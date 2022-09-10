@@ -1,8 +1,13 @@
-<div class="card">
-  <div class="card__image" [style]="{backgroundImage: 'url(' + beer?.image_url + ')'}"></div>
-  <p class="card__name--big">{{beer?.name}}</p>
-  <div class="card__info">
-    <p class="card__name">{{beer?.name}}</p>
-    <p class="card__tagline">{{beer?.tagline}} </p>
+<div class="card" (click)="cardSide=!cardSide">
+  <div *ngIf="cardSide" class="card__front">
+    <div class="card__image" [style]="{backgroundImage: 'url(' + beer?.image_url + ')'}"></div>
+    <p class="card__name--big">{{beer?.name}}</p>
+    <div class="card__info">
+      <p class="card__name">{{beer?.name}}</p>
+      <p class="card__tagline">{{beer?.tagline}} </p>
+    </div>
+  </div>
+  <div *ngIf="!cardSide" class="card__back">
+    <p>{{beer?.description}} </p>
   </div>
 </div>

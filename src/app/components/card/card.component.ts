@@ -13,6 +13,8 @@ export class CardComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  cardSide: boolean = true
+
   @Input()
-  beer:Beer|null=null
+  beer: Beer | null = null
 }

@@ -1,21 +1,42 @@
 @import '../../style/colors.scss';
+@import '../../style/mixins.scss';
 
 .search {
   position: relative;
   display: flex;
+  border-radius: 1rem;
   flex-direction: column;
   align-items: center;
-  width: 75vw;
-  height: auto;
+  width: 14rem;
+  min-height: 2rem;
+  background-color: white;
+  z-index: 15;
+  padding: 0.25rem 1rem;
+
+  @include sm {
+    width: 28rem;
+  }
+
+  @include md {
+    width: 42rem;
+  }
+
+  @include lg {
+    width: 56rem;
+  }
+
+  @include xl {
+    width: 70rem;
+  }
+
 
   &__input {
-    padding: 0.25rem 1rem;
+    margin: 0.25rem 1rem;
     position: relative;
     z-index: 12;
     width: 100%;
     height: 2rem;
     border: none;
-    outline: none;
 
     &--full-border {
       border-radius: 1rem;
@@ -37,6 +58,10 @@
   }
 
   &__option {
+    :first-child {
+      margin-top: 1rem;
+    }
+
     padding: 0.25rem 1rem;
 
     &:hover {

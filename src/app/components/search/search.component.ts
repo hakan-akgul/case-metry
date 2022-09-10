@@ -29,6 +29,10 @@ export class SearchComponent implements OnInit {
   search(value: string, $event: Event) {
     $event.preventDefault();
 
+    if (value === '') {
+      return
+    }
+
     this.punkApi.getBeersByName(value).subscribe(response => {
       const responseBody = response.body as Beer[];
       this.state.updateBeers(responseBody)
@@ -38,7 +42,14 @@ export class SearchComponent implements OnInit {
     this.searchValue = value
   }
 
+  filterRecentSearches(value: string, $event: Event) {
+    $event.preventDefault();
+
+    this.state.filterSearchList(value)
+  }
+
   handleSearchFocus(value: boolean) {
     this.isSearchFocused = value
   }
+
 }

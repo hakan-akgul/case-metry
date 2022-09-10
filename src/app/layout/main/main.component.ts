@@ -18,8 +18,17 @@ export class MainComponent implements OnInit {
 
   getBeers() {
     this.punkApi.getBeers(this.state.pageNumber).subscribe(response => {
-      const responseBody = response.body as Beer[];
-      this.state.updateBeers(responseBody)
+      const responseBody = response.body;
+      const limit = response.headers.get('x-ratelimit-remaining')
+
+      if (responseBody) {
+        this.state.updateBeers(responseBody)
+      }
+
+      if (limit) {
+        this.state.updateLimit(limit)
+
+      }
     });
   }
 

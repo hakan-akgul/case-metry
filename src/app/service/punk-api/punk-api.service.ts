@@ -15,7 +15,7 @@ export class PunkApiService {
   private path = 'https://api.punkapi.com/v2/beers';
 
   getBeers(pageNumber: number): Observable<HttpResponse<Beer[]>> {
-    return this.http.get<Beer[]>(this.path + '?page=' + pageNumber + '&per_page=5', { observe: 'response' });
+    return this.http.get<Beer[]>(this.path + '?page=' + pageNumber, { observe: 'response' });
   }
 
   getBeersByName(name: string): Observable<HttpResponse<Beer[]>> {

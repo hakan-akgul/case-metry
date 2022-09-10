@@ -1,20 +1,40 @@
 @import '../../style/colors.scss';
 
 .card {
-  position: relative;
-  overflow: hidden;
-  margin: 1rem;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  height: 18rem;
-  background-color: $alabaster;
   width: 12rem;
-  align-items: center;
-  cursor: pointer;
-  transition: background 0.5s;
+  height: 18rem;
+  margin: 1rem;
+  background-color: $chrome-yellow;
+  border-radius: 0.5rem;
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 
-  &:hover {
-    background-color: $chrome-yellow;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &__front {
+    transition: background 0.5s;
+    width: 12rem;
+    height: 18rem;
+    position: relative;
+    padding: 0.5rem;
+    background-color: $alabaster;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+
+    &:hover {
+      background-color: $chrome-yellow;
+    }
+  }
+
+  &__back {
+    overflow: auto;
+    padding: 1rem;
+    font-weight: bold;
+    color: $alabaster;
   }
 
   &__image {
