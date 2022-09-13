@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PunkApiService } from '../../service/punk-api/punk-api.service';
+import { PunkApiService } from 'src/app/service/punk-api/punk-api.service';
 
 @Component({
   selector: 'app-home',

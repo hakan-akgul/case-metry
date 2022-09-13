@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Beer } from '../../types/beer.type';
+import { Beer } from 'src/app/types/beer.type';
 import { catchError, retry } from 'rxjs/operators';
 import { StateService } from 'src/app/service/state/state.service';
 

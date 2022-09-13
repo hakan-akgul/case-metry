@@ -8,12 +8,22 @@ export class StateService {
 
   constructor() { }
 
+  /* ---------------------------------- state --------------------------------- */
+
   public beers: Beer[] = []
   public pageNumber: number = 1
   public searchValue: string = ''
   public searchList: string[] = []
   public tempSearchList: string[] = []
   public xRateLimitRemaining: number = 3600
+
+  /* ---------------------------------- beers --------------------------------- */
+
+  public updateBeers(payload: Beer[]): void {
+    this.beers = payload
+  }
+
+  /* ------------------------------ request limit ----------------------------- */
 
   public updateLimit(payload: any): void {
     if (payload < 10) {
@@ -27,10 +37,7 @@ export class StateService {
     this.xRateLimitRemaining = payload
   }
 
-  public updateBeers(payload: Beer[]): void {
-    this.beers = payload
-  }
-
+  /* ------------------------------- pagination ------------------------------- */
 
   public updatePageNumber(payload: number): void {
     this.pageNumber = payload
@@ -40,6 +47,8 @@ export class StateService {
     this.pageNumber = payload
     this.updateBrowserHistory(this.searchValue)
   }
+
+  /* --------------------------------- search --------------------------------- */
 
   public addToSearchList(payload: string): void {
     if (this.searchList.includes(payload) || payload === ' ' || payload === '') {
@@ -73,6 +82,8 @@ export class StateService {
   public filterSearchList(payload: string): void {
     this.tempSearchList = this.searchList.filter((searchItem) => searchItem.includes(payload))
   }
+
+  /* ------------------------------- browser url ------------------------------ */
 
   public updateBrowserHistory(searchValue: string): void {
     this.searchValue = searchValue;
