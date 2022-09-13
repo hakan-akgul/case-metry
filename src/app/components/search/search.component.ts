@@ -12,6 +12,13 @@ export class SearchComponent implements OnInit {
 
   constructor(private punkApi: PunkApiService, protected state: StateService) { }
 
+  /* ---------------------------------- data ---------------------------------- */
+
+  protected isSearchFocused: boolean = false
+  protected searchValue: string = ''
+
+  /* ---------------------------------- init ---------------------------------- */
+
   ngOnInit(): void {
     const searchListOnStorage = localStorage.getItem('searchList')
 
@@ -22,11 +29,9 @@ export class SearchComponent implements OnInit {
     }
   }
 
-  protected isSearchFocused: boolean = false
-  protected searchValue: string = ''
+  /* -------------------------------- functions ------------------------------- */
 
-
-  search(searchValue: string, $event: Event) {
+  handleSearch(searchValue: string, $event: Event) {
     $event.preventDefault();
 
     let value: string = searchValue
@@ -44,7 +49,7 @@ export class SearchComponent implements OnInit {
     this.isSearchFocused = false
   }
 
-  filterRecentSearches(value: string, $event: Event) {
+  handleFilterRecents(value: string, $event: Event) {
     $event.preventDefault();
 
     this.state.filterSearchList(value)

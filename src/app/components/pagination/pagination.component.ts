@@ -13,7 +13,7 @@ export class PaginationComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  paginate(pageNumber: number, $event: Event) {
+  handlePaginate(pageNumber: number, $event: Event) {
     $event.preventDefault();
     this.stateService.updatePagination(pageNumber);
     this.mainComponent.getBeers()

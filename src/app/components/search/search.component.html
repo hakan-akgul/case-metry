@@ -7,8 +7,8 @@
   <input 
     #searchQuery
     class="search__input"
-    (keyup)="filterRecentSearches(searchQuery.value, $event)"
-    (keyup.enter)="search(searchQuery.value, $event)"
+    (keyup)="handleFilterRecents(searchQuery.value, $event)"
+    (keyup.enter)="handleSearch(searchQuery.value, $event)"
     (keyup.esc)="handleSearchFocus(false)"
     [value]="searchValue"
     type="text"
@@ -23,7 +23,7 @@
     <p
       class="search__option"
       *ngFor="let searchItem of state.tempSearchList"
-      (click)="search(searchItem, $event)"
+      (click)="handleSearch(searchItem, $event)"
     >
       {{ searchItem }}
     </p>

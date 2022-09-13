@@ -6,7 +6,7 @@
   >
     <button 
       class="paginate__button" 
-      (click)="paginate(stateService.pageNumber - 1, $event)"
+      (click)="handlePaginate(stateService.pageNumber - 1, $event)"
     > 
       - 
     </button>
@@ -14,7 +14,7 @@
     <input 
       class="paginate__input" 
       #paginateBeers 
-      (keyup.enter)="paginate(+paginateBeers.value, $event)" 
+      (keyup.enter)="handlePaginate(+paginateBeers.value, $event)" 
       type="text"
       [value]="stateService.pageNumber" 
       placeholder="go to page"
@@ -22,7 +22,7 @@
     
     <button 
       class="paginate__button" 
-      (click)="paginate(stateService.pageNumber + 1, $event)"
+      (click)="handlePaginate(stateService.pageNumber + 1, $event)"
     > 
       +
     </button>
