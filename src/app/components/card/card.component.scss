@@ -9,6 +9,7 @@
   overflow: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  cursor: pointer;
 
   &::-webkit-scrollbar {
     display: none;
@@ -22,7 +23,6 @@
     padding: 0.5rem;
     background-color: $alabaster;
     align-items: center;
-    cursor: pointer;
     overflow: hidden;
 
     &:hover {
