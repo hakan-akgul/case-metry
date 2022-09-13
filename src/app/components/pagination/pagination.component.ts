@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { StateService } from 'src/app/service/state/state.service';
-import { MainComponent } from 'src/app/layout/main/main.component';
+import { StateService } from '@/service/state/state.service';
+import { MainComponent } from '@/layout/main/main.component';
 
 @Component({
   selector: 'app-pagination',

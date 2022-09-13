@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Beer } from 'src/app/types/beer.type';
-import { PunkApiService } from 'src/app/service/punk-api/punk-api.service';
-import { StateService } from 'src/app/service/state/state.service';
+import { Beer } from '@/types/beer.type';
+import { PunkApiService } from '@/service/punk-api/punk-api.service';
+import { StateService } from '@/service/state/state.service';
 import { HttpResponse } from '@angular/common/http';
 
 @Component({
