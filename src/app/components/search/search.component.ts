@@ -34,7 +34,7 @@ export class SearchComponent implements OnInit {
   handleSearch(searchValue: string, $event: Event) {
     $event.preventDefault();
 
-    let value: string = searchValue
+    let value: string = searchValue.trim()
 
     if (searchValue === '') value = ' '
 
