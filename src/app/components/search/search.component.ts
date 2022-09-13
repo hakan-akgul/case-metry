@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Beer } from 'src/app/types/beer.type';
-import { PunkApiService } from '../../service/punk-api/punk-api.service';
+import { PunkApiService } from 'src/app/service/punk-api/punk-api.service';
 import { StateService } from 'src/app/service/state/state.service';
 
 @Component({
@@ -26,26 +26,31 @@ export class SearchComponent implements OnInit {
   protected searchValue: string = ''
 
 
-  search(value: string, $event: Event) {
+  search(searchValue: string, $event: Event) {
     $event.preventDefault();
 
-    if (value === '') {
-      return
-    }
+    let value: string = searchValue
 
-    this.punkApi.getBeersByName(value).subscribe(response => {
+    if (searchValue === '') value = ' '
+
+    this.punkApi.getBeers(value, this.state.pageNumber.toString()).subscribe(response => {
       const responseBody = response.body as Beer[];
       this.state.updateBeers(responseBody)
     });
 
     this.state.addToSearchList(value)
     this.searchValue = value
+    this.state.updatePagination(1)
   }
 
   filterRecentSearches(value: string, $event: Event) {
     $event.preventDefault();
 
     this.state.filterSearchList(value)
+
+    if (this.isSearchFocused === false) {
+      this.isSearchFocused = true
+    }
   }
 
   handleSearchFocus(value: boolean) {

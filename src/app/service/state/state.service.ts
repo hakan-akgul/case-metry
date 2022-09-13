@@ -10,9 +10,9 @@ export class StateService {
 
   public beers: Beer[] = []
   public pageNumber: number = 1
+  public searchValue: string = ''
   public searchList: string[] = []
   public tempSearchList: string[] = []
-
   public xRateLimitRemaining: number = 3600
 
   public updateLimit(payload: any): void {
@@ -21,7 +21,7 @@ export class StateService {
     }
 
     if (payload === 1) {
-      alert('No request remaining. Wait 1 hour.')
+      alert('No request remaining. Wait and try')
     }
 
     this.xRateLimitRemaining = payload
@@ -31,12 +31,19 @@ export class StateService {
     this.beers = payload
   }
 
-  public updatePagination(payload: number): void {
+
+  public updatePageNumber(payload: number): void {
     this.pageNumber = payload
   }
 
+  public updatePagination(payload: number): void {
+    this.pageNumber = payload
+    this.updateBrowserHistory(this.searchValue)
+  }
+
   public addToSearchList(payload: string): void {
-    if (this.searchList.includes(payload)) {
+    if (this.searchList.includes(payload) || payload === ' ' || payload === '') {
+      this.updateBrowserHistory(payload)
       return
     }
 
@@ -45,18 +52,31 @@ export class StateService {
     }
 
     this.searchList.unshift(payload)
+    this.updatePagination(1)
+    this.updateBrowserHistory(payload)
+
     localStorage.setItem('searchList', JSON.stringify(this.searchList))
   }
 
-  public updateSearchList(payload: string[]) {
+  public updateSearchList(payload: string[]): void {
     this.searchList = payload
   }
 
-  public initTempSearchList() {
+  public initTempSearchList(): void {
     this.tempSearchList = this.searchList
   }
 
-  public filterSearchList(payload: string) {
+  public updateSearchValue(payload: string): void {
+    this.searchValue = payload
+  }
+
+  public filterSearchList(payload: string): void {
     this.tempSearchList = this.searchList.filter((searchItem) => searchItem.includes(payload))
+  }
+
+  public updateBrowserHistory(searchValue: string): void {
+    this.searchValue = searchValue;
+
+    history.pushState("", "", `?beer_name=${searchValue}&page=${this.pageNumber}`)
   }
 }

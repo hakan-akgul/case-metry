@@ -10,8 +10,6 @@ export class HomeComponent implements OnInit {
 
   constructor(public punkApiService: PunkApiService) { }
 
-  ngOnInit(): void {
-    // this.punkApiService.getBeers(2);
-  }
+  ngOnInit(): void { }
 
 }

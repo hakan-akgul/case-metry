@@ -1,11 +1,39 @@
-<div id="search" class="search" (click)="handleSearchFocus(true)">
-  <input class="search__input" #searchQuery (keyup.enter)="search(searchQuery.value, $event)"
-    (keyup)="filterRecentSearches(searchQuery.value, $event)" (keyup.esc)="handleSearchFocus(false)" type="text"
-    placeholder="Search beer name" [value]="searchValue">
-  <div *ngIf="isSearchFocused" class="search__select" name="search">
-    <p class="search__option" *ngFor="let searchItem of state.tempSearchList" (click)="search(searchItem, $event)">
-      {{searchItem}}
+<div
+  id="search"
+  class="search"
+  (click)="handleSearchFocus(true)"
+>
+
+  <input 
+    #searchQuery
+    class="search__input"
+    (keyup)="filterRecentSearches(searchQuery.value, $event)"
+    (keyup.enter)="search(searchQuery.value, $event)"
+    (keyup.esc)="handleSearchFocus(false)"
+    [value]="searchValue"
+    type="text"
+    placeholder="Search beer name"
+  >
+
+  <div
+    *ngIf="isSearchFocused"
+    name="search"
+    class="search__select"
+  >
+    <p
+      class="search__option"
+      *ngFor="let searchItem of state.tempSearchList"
+      (click)="search(searchItem, $event)"
+    >
+      {{ searchItem }}
     </p>
   </div>
+
 </div>
-<div *ngIf="isSearchFocused" class="search__outside" (click)="handleSearchFocus(false)"></div>
+
+<div
+  *ngIf="isSearchFocused"
+  class="search__outside"
+  (click)="handleSearchFocus(false)"
+>
+</div>
