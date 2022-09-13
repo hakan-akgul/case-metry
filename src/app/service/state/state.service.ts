@@ -23,20 +23,6 @@ export class StateService {
     this.beers = payload
   }
 
-  /* ------------------------------ request limit ----------------------------- */
-
-  public updateLimit(payload: any): void {
-    if (payload < 10) {
-      alert('10 request remaining')
-    }
-
-    if (payload === 1) {
-      alert('No request remaining. Wait and try')
-    }
-
-    this.xRateLimitRemaining = payload
-  }
-
   /* ------------------------------- pagination ------------------------------- */
 
   public updatePageNumber(payload: number): void {

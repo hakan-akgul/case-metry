@@ -15,7 +15,6 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {
     const search = window.location.search.split(/(\?beer_name=)(.*)(&page=)(.*)/gm)
-    console.log('splitedSearch', search)
 
     search[2]
       ? this.state.updateSearchValue(search[2])
@@ -36,14 +35,9 @@ export class MainComponent implements OnInit {
 
   handleResponse(response: HttpResponse<Beer[]>) {
     const responseBody = response.body;
-    const limit = response.headers.get('x-ratelimit-remaining')
 
     if (responseBody) {
       this.state.updateBeers(responseBody)
-    }
-
-    if (limit) {
-      this.state.updateLimit(limit)
     }
   }
 
