@@ -41,6 +41,7 @@ export class SearchComponent implements OnInit {
     this.state.addToSearchList(value)
     this.searchValue = value
     this.state.updatePagination(1)
+    this.isSearchFocused = false
   }
 
   filterRecentSearches(value: string, $event: Event) {
